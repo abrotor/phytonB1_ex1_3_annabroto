@@ -52,8 +52,8 @@ def find_largest_word(text):
     # Write here your code
     words = []
     for c in text:
-        while c != " ":
-            word = ""
+        if is_space(c) != True:
+            word = c
             words.append(word)
     return words
 
