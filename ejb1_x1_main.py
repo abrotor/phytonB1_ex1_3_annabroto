@@ -51,10 +51,11 @@ from util_package.text_manager import TEXT, is_newline, is_space, remove_punctua
 def find_largest_word(text):
     # Write here your code
     words = []
+    word = ""
     for c in text:
-        if is_space(c) != True:
-            word = c
-            words.append(word)
+        while is_space(c) != True:
+            word = word + c
+            words.append(c)
     return words
 
     pass                
