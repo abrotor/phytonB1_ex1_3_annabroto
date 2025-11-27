@@ -50,13 +50,19 @@ from util_package.text_manager import TEXT, is_newline, is_space, remove_punctua
 
 def find_largest_word(text):
     # Write here your code
+    text = remove_punctuation_marks(text)
+    text = text + " "
     words = []
     word = ""
+    wordllarga = ""
     for c in text:
-        while is_space(c) != True:
+        if is_space(c) != True and is_newline(c) != True:
             word = word + c
-            words.append(c)
-    return words
+        else:
+            if len(word)>len(wordllarga):
+                wordllarga = word
+            word = ""
+    return wordllarga
 
     pass                
 
@@ -75,9 +81,9 @@ def find_size_largest_sentence(text, filter):
     # Write here your code
     pass
 
-
+print(TEXT)
 # Si quieres probar tu código, descomenta las siguientes líneas y ejecuta el script
-print("La palabra mas larga es:", find_largest_word(TEXT))
+print("La palabra mas larga es:", find_largest_word("Hola este es mi libro de matemáticas"))
 print("'aa' es un palíndromo su resultado es:", is_palindrome_word("aa"))
 print("'abx' no un palíndromo su resultado es:", is_palindrome_word("abx"))
 print("'a' es un palíndromo su resultado es:", is_palindrome_word("a"))
