@@ -52,7 +52,6 @@ def find_largest_word(text):
     # Write here your code
     text = remove_punctuation_marks(text)
     text = text + " "
-    words = []
     word = ""
     wordllarga = ""
     for c in text:
@@ -68,8 +67,14 @@ def find_largest_word(text):
 
 def is_palindrome_word(word):
     # Write here your code
+    palindron = True
+    if len(word) <= 1:
+        return palindron
+    else:
+        if word[0] != word[-1]:
+            palindron = False
+    return palindron and is_palindrome_word(word[1:-1])
     pass
-    
 
 
 def count_palindrome_words(text):
