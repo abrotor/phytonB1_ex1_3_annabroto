@@ -67,6 +67,7 @@ def find_largest_word(text):
 
 def is_palindrome_word(word):
     # Write here your code
+    word = word.lower()
     palindron = True
     if len(word) <= 1:
         return palindron
@@ -79,19 +80,46 @@ def is_palindrome_word(word):
 
 def count_palindrome_words(text):
     # Write here your code
+        # Write here your code
+    text = remove_punctuation_marks(text)
+    text = text + " "
+    word = ""
+    npalindron = 0
+    for c in text:
+        if is_space(c) != True and is_newline(c) != True:
+            word = word + c
+        else:
+            if is_palindrome_word(word) == True and word != "":
+                npalindron = npalindron + 1
+            word = ""
+    return npalindron
     pass
 
 
 def find_size_largest_sentence(text, filter):
     # Write here your code
-    pass
+    frase = ""
+    frasellarga = ""
+    if filter in text:
+        for c in text:
+            if is_newline(c) != True:
+                frase = frase + c
+            else:
+                if filter in frase and len(frase)>len(frasellarga):
+                    frasellarga = frase
+                frase = ""
+        print(frasellarga)
+        return len(frasellarga)
+    else:
+        raise ValueError("Filter not in the text")
 
+    pass
 print(TEXT)
 # Si quieres probar tu código, descomenta las siguientes líneas y ejecuta el script
 print("La palabra mas larga es:", find_largest_word("Hola este es mi libro de matemáticas"))
 print("'aa' es un palíndromo su resultado es:", is_palindrome_word("aa"))
 print("'abx' no un palíndromo su resultado es:", is_palindrome_word("abx"))
-print("'a' es un palíndromo su resultado es:", is_palindrome_word("a"))
+print("'a' es un palíndromo su resultado es:", is_palindrome_word("  x  "))
 print("'Ababa' es palíndromo su resultado es:", is_palindrome_word("Ababa"))
 print("El número de palabras identificadas como palíndromos es:", count_palindrome_words(TEXT))
 print("El tamaño de la oración más larga con el filtro='a', es :", find_size_largest_sentence(TEXT, "melon"))
