@@ -108,13 +108,10 @@ def find_size_largest_sentence(text, filter):
                 if filter in frase and len(frase)>len(frasellarga):
                     frasellarga = frase
                 frase = ""
-        print(frasellarga)
         return len(frasellarga)
     else:
         raise ValueError("Filter not in the text")
 
-    pass
-print(TEXT)
 # Si quieres probar tu código, descomenta las siguientes líneas y ejecuta el script
 print("La palabra mas larga es:", find_largest_word("Hola este es mi libro de matemáticas"))
 print("'aa' es un palíndromo su resultado es:", is_palindrome_word("aa"))
