@@ -52,7 +52,7 @@ def find_largest_word(text):
     # Write here your code
     words = []
     for c in text:
-        while c != "":
+        while c != " ":
             word = ""
             words.append(word)
     return words
